@@ -11,6 +11,7 @@ weatherForm.addEventListener('submit', (e) => {
   messageOne.textContent = 'Loading..'
   messageTwo.textContent = ''
   weatherIcon.setAttribute("src", "")
+  weatherIcon.style.border = "none";
   
 
   fetch(`/weather?address=${location}`).then((response) => {
@@ -21,6 +22,7 @@ weatherForm.addEventListener('submit', (e) => {
       messageOne.textContent = data.address.toString()
       messageTwo.textContent = data.forecast.toString()
       weatherIcon.setAttribute("src", data.img)
+      weatherIcon.style.border = "1px solid black";
     }
   })
 })
