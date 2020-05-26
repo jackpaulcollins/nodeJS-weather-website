@@ -37,8 +37,8 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
   res.render('help', {
     title: 'Help',
-    message: 'This the help message. For help text a nigga @ 503-954-6705',
-    subMessage: 'Aight bet. We out this mf',
+    message: 'For help text 503-954-6705',
+    subMessage: 'Word',
     name: 'Jack Collins'
   })
 })
