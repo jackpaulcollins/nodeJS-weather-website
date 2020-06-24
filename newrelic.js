@@ -9,7 +9,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['CoJack Weather App'],
+  app_name: ['WeatherApp'],
   /**
    * Your New Relic license key.
    */
