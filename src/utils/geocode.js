@@ -1,11 +1,22 @@
 const request = require('request')
 const fetch = require('node-fetch')
+const {gzip, ungzip} = require('node-gzip');
 
 const geocode = (address, callback) => {
   //sends custom event to New Relic
+  const compressedAddress = (address) => {
+    gzip(address)
+  .then((compressed) => {
+    console.log(ungzip(compressed))
+    return ungzip(compressed);
+  })
+  .then((decompressed) => {
+    console.log(decompressed.toString());     //Hello World
+  });
+  }
   const insightsBody = {
     eventType: 'addressCheck',
-    address
+    address: compressedAddress()
   }
   fetch('https://insights-collector.newrelic.com/v1/accounts/2478897/events', {
     method: 'post',
