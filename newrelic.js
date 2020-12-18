@@ -9,11 +9,11 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['WeatherApp_testing_bug_restarted'],
+  app_name: ['Weather-app'],
   /**
    * Your New Relic license key.
    */
-  license_key: 'c3579fadfe701500a0cf5a27587cf6ece875NRAL',
+  license_key: 'fc7ac69c9f49a4272c0fd87b00849b0e20feNRAL',
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing
