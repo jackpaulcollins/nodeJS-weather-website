@@ -33,7 +33,8 @@ var setScriptHeaderAndRespond = function (cb) {
 app.get('', (req, res) => {
   res.render('index', {
     title: 'Weather',
-    name: 'Jack Collins'
+    name: 'Jack Collins',
+    nreum: newrelic.getBrowserTimingHeader()
   })
 })
 
