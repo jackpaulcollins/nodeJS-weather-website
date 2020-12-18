@@ -1,4 +1,4 @@
-require('newrelic');
+const newrelic = require('newrelic');
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
@@ -25,7 +25,7 @@ app.get('', (req, res) => {
   res.render('index', {
     title: 'Weather',
     name: 'Jack Collins',
-    nreum : newrelic.getBrowserTimingHeader()
+    nreum: newrelic.getBrowserTimingHeader()
   })
 })
 
