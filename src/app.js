@@ -30,12 +30,12 @@ var setScriptHeaderAndRespond = function (cb) {
   }
 };
 
-app.get('', setScriptHeaderAndRespond(function (req, res){
+app.get('', (req, res) => {
   res.render('index', {
     title: 'Weather',
     name: 'Jack Collins'
   })
-}))
+})
 
 app.get('/about', (req, res) => {
   res.render('about', {
