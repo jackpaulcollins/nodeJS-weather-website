@@ -21,13 +21,22 @@ hbs.registerPartials(partialsPath)
 //Setup Static directory for server
 app.use(express.static(publicDirectoryPath))
 
-app.get('', (req, res) => {
+var setScriptHeaderAndRespond = function (cb) {
+  return function () {
+    app.locals.nreum = newrelic.getBrowserTimingHeader(); // generate unique timing header
+    var response = cb.apply(null, arguments); // response rendering template
+    app.locals.nreum = undefined; // remove stale data
+    return response;
+  }
+};
+
+app.get('', setScriptHeaderAndRespond(function (req, res) {
   res.render('index', {
     title: 'Weather',
     name: 'Jack Collins',
     nreum: newrelic.getBrowserTimingHeader()
   })
-})
+}))
 
 app.get('/about', (req, res) => {
   res.render('about', {
